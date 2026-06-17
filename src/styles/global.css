@@ -1120,6 +1120,31 @@ h1 {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: var(--color-background);
+  box-shadow: 0 10px 24px rgb(17 17 17 / 4%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease;
+  will-change: transform;
+}
+
+.product-card-button:hover .product-card,
+.product-card-button:focus-within .product-card {
+  border-color: rgb(17 17 17 / 18%);
+  box-shadow: 0 18px 42px rgb(17 17 17 / 14%);
+  transform: translateY(-4px) scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    transition: none;
+  }
+
+  .product-card-button:hover .product-card,
+  .product-card-button:focus-within .product-card {
+    transform: none;
+  }
 }
 
 .product-thumbnail {
