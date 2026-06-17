@@ -1,7 +1,8 @@
 export const siteContent = {
   eyebrow: 'React + Vite',
-  title: 'Gallery Project',
-  description: 'React app with JavaScript is ready to run.',
+  brandName: '박은선',
+  title: '박은선 | Eunsun Park',
+  description: 'Artist · Curator · Web & Video',
   menuItems: [
     { label: 'Home', href: '/' },
     {

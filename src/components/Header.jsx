@@ -22,7 +22,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
     <header className="site-header">
       <a className="brand" href="/">
         <span className="brand-mark">G</span>
-        <span>{siteContent.title}</span>
+        <span>{siteContent.brandName}</span>
       </a>
 
       <button
