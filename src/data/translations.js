@@ -1,11 +1,12 @@
 export const languageOptions = [
   { label: 'English', value: 'en' },
   { label: '한국어', value: 'ko' },
+  { label: '中文', value: 'zh' },
   { label: '日本語', value: 'ja' },
   { label: 'Français', value: 'fr' },
   { label: 'العربية', value: 'ar' },
   { label: 'Italiano', value: 'it' },
-  { label: 'עברית', value: 'he' },
+  { label: 'עברית / Israel', value: 'he' },
   { label: 'More languages', value: 'other' },
 ]
 
@@ -66,6 +67,35 @@ export const translations = {
       description: '작가 · 큐레이터 · 웹 & 영상',
       captionTitle: '박은선',
       caption: '라인테이프 설치, 공간 드로잉과 전시 아카이브',
+    },
+  },
+  zh: {
+    dir: 'ltr',
+    nav: {
+      '/gallery': '作品',
+      '/gallery/exhibitions': '展览',
+      '/gallery/video': '视频',
+      '/about': '简介',
+      '/contact': '联系',
+    },
+    ui: {
+      dark: '深色',
+      light: '浅色',
+      language: '语言',
+      search: '搜索',
+      portfolio: '作品集',
+      searchKicker: '搜索',
+      searchArchive: '搜索档案',
+      searchIntro: '浏览页面、作品、展览记录、视频资料和作品集内容。',
+      noResults: '暂时没有匹配内容。请尝试搜索作品、视频、简介、展览或联系。',
+      emptySearch: '请在顶部搜索栏输入关键词。',
+      resultsFor: '搜索结果',
+    },
+    home: {
+      title: '박은선 Eunsun Park',
+      description: '艺术家 · 策展人 · 网页与视频',
+      captionTitle: 'Park Eunsun',
+      caption: '线性胶带装置、空间绘画与展览档案',
     },
   },
   ja: {
