@@ -1,4 +1,5 @@
 import { siteContent } from '../data/siteContent.js'
+import { getCopy } from '../data/translations.js'
 
 const baseResults = [
   {
@@ -56,10 +57,16 @@ const getQuery = () => {
   return new URLSearchParams(window.location.search).get('q')?.trim() ?? ''
 }
 
-export default function SearchPage({ onNavigate }) {
+export default function SearchPage({ language, onNavigate }) {
+  const copy = getCopy(language)
   const query = getQuery()
   const normalizedQuery = query.toLowerCase()
-  const results = [...baseResults, ...tabResults].filter((item) =>
+  const localizedBaseResults = baseResults.map((item) => ({
+    ...item,
+    title: copy.nav[item.path] ?? item.title,
+    type: copy.ui.portfolio,
+  }))
+  const results = [...localizedBaseResults, ...tabResults].filter((item) =>
     `${item.title} ${item.type} ${item.text}`.toLowerCase().includes(normalizedQuery),
   )
 
@@ -71,12 +78,11 @@ export default function SearchPage({ onNavigate }) {
   return (
     <section className="search-page">
       <header className="search-page-header">
-        <p>Search</p>
-        <h1>{query ? `Results for "${query}"` : 'Search the archive'}</h1>
-        <span>
-          Browse pages, works, exhibition notes, video references, and portfolio
-          content.
-        </span>
+        <p>{copy.ui.searchKicker}</p>
+        <h1>
+          {query ? `${copy.ui.resultsFor} "${query}"` : copy.ui.searchArchive}
+        </h1>
+        <span>{copy.ui.searchIntro}</span>
       </header>
 
       {query && results.length > 0 ? (
@@ -97,8 +103,8 @@ export default function SearchPage({ onNavigate }) {
       ) : (
         <p className="search-empty">
           {query
-            ? 'No matching content yet. Try Works, Video, Biography, Exhibition, or Contact.'
-            : 'Enter a keyword in the header search field.'}
+            ? copy.ui.noResults
+            : copy.ui.emptySearch}
         </p>
       )}
     </section>

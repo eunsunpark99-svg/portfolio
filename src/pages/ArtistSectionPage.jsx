@@ -1,3 +1,5 @@
+import { getCopy } from '../data/translations.js'
+
 const sectionContent = {
   '/gallery': {
     kicker: 'Works',
@@ -106,15 +108,71 @@ const sectionContent = {
   },
 }
 
-export default function ArtistSectionPage({ route }) {
+const localizedDescriptions = {
+  en: {
+    '/gallery': 'A focused archive of image-based works, installation views, spatial drawings, and visual studies.',
+    '/about': 'Park Eunsun is an artist, curator, and web/video maker working across visual art, exhibition planning, and digital presentation.',
+    '/gallery/exhibitions': 'Selected solo, group, and curated exhibition projects will be organized here with dates, venues, and documentation.',
+    '/gallery/video': 'Video works, exhibition walkthroughs, interviews, and process documentation will be collected here.',
+    '/contact': 'For exhibitions, collaborations, curatorial projects, and portfolio inquiries.',
+  },
+  ko: {
+    '/gallery': '이미지 기반 작업, 설치 전경, 공간 드로잉과 시각 아카이브를 정리하는 공간입니다.',
+    '/about': '박은선은 시각예술, 전시기획, 웹과 영상을 넘나들며 작업하는 작가이자 큐레이터입니다.',
+    '/gallery/exhibitions': '개인전, 단체전, 기획 전시 프로젝트를 날짜, 장소, 기록과 함께 정리합니다.',
+    '/gallery/video': '영상 작업, 전시 기록, 인터뷰와 작업 과정 영상을 모아두는 공간입니다.',
+    '/contact': '전시, 협업, 기획 프로젝트와 포트폴리오 문의를 위한 페이지입니다.',
+  },
+  ja: {
+    '/gallery': 'イメージ作品、インスタレーションビュー、空間ドローイング、視覚アーカイブをまとめる場所です。',
+    '/about': 'Park Eunsunは、視覚芸術、展覧会企画、ウェブと映像を横断して活動するアーティスト／キュレーターです。',
+    '/gallery/exhibitions': '個展、グループ展、キュレーション企画を、日付、会場、記録とともに整理します。',
+    '/gallery/video': '映像作品、展覧会記録、インタビュー、制作過程の映像を集めます。',
+    '/contact': '展覧会、協働、キュレーション企画、ポートフォリオに関するお問い合わせページです。',
+  },
+  fr: {
+    '/gallery': 'Une archive consacrée aux œuvres visuelles, vues d’installation, dessins spatiaux et études d’image.',
+    '/about': 'Park Eunsun est artiste, curatrice et créatrice web/vidéo, travaillant entre art visuel, exposition et présentation numérique.',
+    '/gallery/exhibitions': 'Les expositions personnelles, collectives et projets curatoriaux seront organisés avec dates, lieux et documents.',
+    '/gallery/video': 'Œuvres vidéo, visites d’exposition, entretiens et documents de processus seront rassemblés ici.',
+    '/contact': 'Pour les expositions, collaborations, projets curatoriaux et demandes de portfolio.',
+  },
+  ar: {
+    '/gallery': 'أرشيف مركّز للأعمال البصرية ومشاهد التركيبات والرسوم المكانية والدراسات المرئية.',
+    '/about': 'بارك أونسن فنانة وقيّمة وصانعة ويب وفيديو تعمل بين الفن البصري وتنظيم المعارض والعرض الرقمي.',
+    '/gallery/exhibitions': 'سيتم تنظيم المعارض الفردية والجماعية والمشاريع القيّمية مع التواريخ والأماكن والوثائق.',
+    '/gallery/video': 'تُجمع هنا أعمال الفيديو وجولات المعارض والمقابلات وتوثيق عملية العمل.',
+    '/contact': 'للاستفسارات حول المعارض والتعاون والمشاريع القيّمية والملف الفني.',
+  },
+  it: {
+    '/gallery': 'Un archivio dedicato a opere visive, viste di installazione, disegni spaziali e studi d’immagine.',
+    '/about': 'Park Eunsun è artista, curatrice e autrice web/video, attiva tra arte visiva, progettazione espositiva e presentazione digitale.',
+    '/gallery/exhibitions': 'Mostre personali, collettive e progetti curatoriali saranno organizzati con date, sedi e documentazione.',
+    '/gallery/video': 'Qui saranno raccolti video, walkthrough di mostre, interviste e documentazione del processo.',
+    '/contact': 'Per mostre, collaborazioni, progetti curatoriali e richieste sul portfolio.',
+  },
+  he: {
+    '/gallery': 'ארכיון ממוקד לעבודות חזותיות, תיעוד מיצבים, רישום מרחבי ומחקרי דימוי.',
+    '/about': 'פארק אונסון היא אמנית, אוצרת ויוצרת ווב/וידאו הפועלת בין אמנות חזותית, תערוכות והצגה דיגיטלית.',
+    '/gallery/exhibitions': 'תערוכות יחיד, קבוצתיות ופרויקטים אוצרותיים יאורגנו כאן עם תאריכים, מקומות ותיעוד.',
+    '/gallery/video': 'כאן ייאספו עבודות וידאו, סיורי תערוכה, ראיונות ותיעוד תהליך.',
+    '/contact': 'לפניות בנושא תערוכות, שיתופי פעולה, פרויקטים אוצרותיים ופורטפוליו.',
+  },
+}
+
+export default function ArtistSectionPage({ language, route }) {
   const content = sectionContent[route] ?? sectionContent['/gallery']
+  const copy = getCopy(language)
+  const description =
+    localizedDescriptions[language]?.[route] ?? localizedDescriptions.en[route]
+  const title = copy.nav[route] ?? content.title
 
   return (
     <section className="artist-page">
       <header className="artist-page-header">
-        <p>{content.kicker}</p>
-        <h1>{content.title}</h1>
-        <span>{content.description}</span>
+        <p>{title}</p>
+        <h1>{title}</h1>
+        <span>{description}</span>
       </header>
 
       <figure className="artist-page-feature">

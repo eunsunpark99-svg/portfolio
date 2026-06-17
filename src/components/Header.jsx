@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import { siteContent } from '../data/siteContent.js'
-
-const languageOptions = [
-  { label: 'Language', value: '' },
-  { label: 'English', value: 'en' },
-  { label: '한국어', value: 'ko' },
-  { label: '日本語', value: 'ja' },
-  { label: 'Français', value: 'fr' },
-  { label: 'العربية', value: 'ar' },
-  { label: 'Italiano', value: 'it' },
-  { label: 'עברית', value: 'he' },
-  { label: 'More languages', value: 'other' },
-]
+import { getCopy, languageOptions } from '../data/translations.js'
 
 const socialLinks = [
   {
@@ -58,10 +47,17 @@ const SocialIcon = ({ type }) => {
   )
 }
 
-export default function Header({ theme, onToggleTheme, onNavigate }) {
+export default function Header({
+  language,
+  theme,
+  onLanguageChange,
+  onToggleTheme,
+  onNavigate,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
+  const copy = getCopy(language)
 
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current)
@@ -76,25 +72,22 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
     setOpenDropdown((current) => (current === label ? null : label))
   }
 
-  const translatePage = (event) => {
-    const language = event.target.value
+  const changeLanguage = (event) => {
+    const nextLanguage = event.target.value
 
-    if (!language || typeof window === 'undefined') {
+    if (!nextLanguage || typeof window === 'undefined') {
       return
     }
 
-    const currentUrl = window.location.href
-
-    if (language === 'other') {
+    if (nextLanguage === 'other') {
+      const currentUrl = window.location.href
       window.location.href = `https://translate.google.com/?sl=auto&op=websites&text=${encodeURIComponent(
         currentUrl,
       )}`
       return
     }
 
-    window.location.href = `https://translate.google.com/translate?sl=auto&tl=${language}&u=${encodeURIComponent(
-      currentUrl,
-    )}`
+    onLanguageChange(nextLanguage)
   }
 
   const followLink = (event, href) => {
@@ -157,7 +150,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
                   href={item.href}
                   onClick={(event) => followLink(event, item.href)}
                 >
-                  {item.label}
+                  {copy.nav[item.href] ?? item.label}
                 </a>
               )
             }
@@ -210,7 +203,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
             id="site-search"
             type="search"
             value={searchTerm}
-            placeholder="Search"
+            placeholder={copy.ui.search}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
           <button type="submit" aria-label="Search">
@@ -226,16 +219,17 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
           onClick={onToggleTheme}
           aria-label="Toggle theme"
         >
-          {theme === 'dark' ? 'Light' : 'Dark'}
+          {theme === 'dark' ? copy.ui.light : copy.ui.dark}
         </button>
         <label className="language-field">
           <span className="sr-only">Translate page</span>
           <select
             className="language-select"
-            defaultValue=""
+            value={language}
             aria-label="Translate page"
-            onChange={translatePage}
+            onChange={changeLanguage}
           >
+            <option value="">{copy.ui.language}</option>
             {languageOptions.map((language) => (
               <option key={language.value || language.label} value={language.value}>
                 {language.label}

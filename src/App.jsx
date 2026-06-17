@@ -3,6 +3,7 @@ import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
 import Main from './components/Main.jsx'
 import AuthPage from './pages/AuthPage.jsx'
+import { getCopy } from './data/translations.js'
 import './App.css'
 
 const supportedRoutes = new Set([
@@ -34,11 +35,25 @@ export default function App() {
     return persisted === 'dark' ? 'dark' : 'light'
   })
   const [route, setRoute] = useState(parseRoute)
+  const [language, setLanguage] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'en'
+    }
+
+    return window.localStorage.getItem('gallery_language') ?? 'en'
+  })
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     window.localStorage.setItem('gallery_theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    const copy = getCopy(language)
+    document.documentElement.lang = language
+    document.documentElement.dir = copy.dir
+    window.localStorage.setItem('gallery_language', language)
+  }, [language])
 
   useEffect(() => {
     const onPopState = () => setRoute(parseRoute())
@@ -60,8 +75,18 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header theme={theme} onToggleTheme={toggleTheme} onNavigate={navigate} />
-      {route === '/auth' ? <AuthPage /> : <Main route={route} onNavigate={navigate} />}
+      <Header
+        language={language}
+        theme={theme}
+        onLanguageChange={setLanguage}
+        onToggleTheme={toggleTheme}
+        onNavigate={navigate}
+      />
+      {route === '/auth' ? (
+        <AuthPage />
+      ) : (
+        <Main route={route} language={language} onNavigate={navigate} />
+      )}
       <Footer />
     </div>
   )

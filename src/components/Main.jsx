@@ -10,15 +10,15 @@ const sectionRoutes = new Set([
   '/contact',
 ])
 
-export default function Main({ route, onNavigate }) {
+export default function Main({ route, language, onNavigate }) {
   return (
     <main className="app-main">
       {route === '/search' ? (
-        <SearchPage onNavigate={onNavigate} />
+        <SearchPage language={language} onNavigate={onNavigate} />
       ) : sectionRoutes.has(route) ? (
-        <ArtistSectionPage route={route} />
+        <ArtistSectionPage language={language} route={route} />
       ) : (
-        <HomePage onNavigate={onNavigate} />
+        <HomePage language={language} onNavigate={onNavigate} />
       )}
     </main>
   )

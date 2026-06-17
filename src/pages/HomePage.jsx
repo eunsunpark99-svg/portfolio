@@ -1,7 +1,10 @@
 import ContentTabs from '../components/ContentTabs.jsx'
 import { siteContent } from '../data/siteContent.js'
+import { getCopy } from '../data/translations.js'
 
-export default function HomePage({ onNavigate }) {
+export default function HomePage({ language, onNavigate }) {
+  const copy = getCopy(language)
+
   const followLink = (event, href) => {
     event.preventDefault()
     onNavigate(href)
@@ -11,30 +14,30 @@ export default function HomePage({ onNavigate }) {
     <section className="artist-home">
       <section className="artist-hero" aria-labelledby="artist-title">
         <aside className="artist-intro">
-          <p className="artist-kicker">Portfolio</p>
-          <h1 id="artist-title">{siteContent.title}</h1>
-          <p>{siteContent.description}</p>
+          <p className="artist-kicker">{copy.ui.portfolio}</p>
+          <h1 id="artist-title">{copy.home.title}</h1>
+          <p>{copy.home.description}</p>
           <nav className="artist-index" aria-label="Artist sections">
             <a href="/gallery" onClick={(event) => followLink(event, '/gallery')}>
-              Works
+              {copy.nav['/gallery']}
             </a>
             <a href="/about" onClick={(event) => followLink(event, '/about')}>
-              Biography
+              {copy.nav['/about']}
             </a>
             <a
               href="/gallery/exhibitions"
               onClick={(event) => followLink(event, '/gallery/exhibitions')}
             >
-              Exhibitions
+              {copy.nav['/gallery/exhibitions']}
             </a>
             <a
               href="/gallery/video"
               onClick={(event) => followLink(event, '/gallery/video')}
             >
-              Video
+              {copy.nav['/gallery/video']}
             </a>
             <a href="/contact" onClick={(event) => followLink(event, '/contact')}>
-              Contact
+              {copy.nav['/contact']}
             </a>
           </nav>
         </aside>
@@ -45,13 +48,13 @@ export default function HomePage({ onNavigate }) {
             alt="Line tape installation wall with a figure silhouette."
           />
           <figcaption>
-            <strong>Park Eunsun</strong>
-            <span>Line tape installation, spatial drawing and exhibition archive</span>
+            <strong>{copy.home.captionTitle}</strong>
+            <span>{copy.home.caption}</span>
           </figcaption>
         </figure>
       </section>
 
-      <ContentTabs tabs={siteContent.tabs} />
+      <ContentTabs language={language} tabs={siteContent.tabs} />
     </section>
   )
 }
