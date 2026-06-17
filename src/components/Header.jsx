@@ -1,6 +1,18 @@
 import { useState } from 'react'
 import { siteContent } from '../data/siteContent.js'
 
+const languageOptions = [
+  { label: 'Language', value: '' },
+  { label: 'English', value: 'en' },
+  { label: '한국어', value: 'ko' },
+  { label: '日本語', value: 'ja' },
+  { label: 'Français', value: 'fr' },
+  { label: 'العربية', value: 'ar' },
+  { label: 'Italiano', value: 'it' },
+  { label: 'עברית', value: 'he' },
+  { label: 'Other languages', value: 'other' },
+]
+
 export default function Header({ theme, onToggleTheme, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
@@ -16,6 +28,27 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
 
   const toggleDropdown = (label) => {
     setOpenDropdown((current) => (current === label ? null : label))
+  }
+
+  const translatePage = (event) => {
+    const language = event.target.value
+
+    if (!language || typeof window === 'undefined') {
+      return
+    }
+
+    const currentUrl = window.location.href
+
+    if (language === 'other') {
+      window.location.href = `https://translate.google.com/?sl=auto&op=websites&text=${encodeURIComponent(
+        currentUrl,
+      )}`
+      return
+    }
+
+    window.location.href = `https://translate.google.com/translate?sl=auto&tl=${language}&u=${encodeURIComponent(
+      currentUrl,
+    )}`
   }
 
   return (
@@ -108,6 +141,21 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
         >
           {theme === 'dark' ? '라이트 모드' : '다크 모드'}
         </button>
+        <label className="language-field">
+          <span className="sr-only">Translate page</span>
+          <select
+            className="language-select"
+            defaultValue=""
+            aria-label="Translate page"
+            onChange={translatePage}
+          >
+            {languageOptions.map((language) => (
+              <option key={language.value || language.label} value={language.value}>
+                {language.label}
+              </option>
+            ))}
+          </select>
+        </label>
         <button
           className="login-button"
           type="button"
