@@ -4,12 +4,12 @@ import { siteContent } from '../data/siteContent.js'
 const languageOptions = [
   { label: 'Language', value: '' },
   { label: 'English', value: 'en' },
-  { label: '한국어', value: 'ko' },
-  { label: '日本語', value: 'ja' },
-  { label: 'Français', value: 'fr' },
-  { label: 'العربية', value: 'ar' },
+  { label: 'Korean', value: 'ko' },
+  { label: 'Japanese', value: 'ja' },
+  { label: 'French', value: 'fr' },
+  { label: 'Arabic', value: 'ar' },
   { label: 'Italiano', value: 'it' },
-  { label: 'עברית', value: 'he' },
+  { label: 'Hebrew', value: 'he' },
   { label: 'Other languages', value: 'other' },
 ]
 
@@ -54,7 +54,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
   return (
     <header className="site-header">
       <a className="brand" href="/">
-        <span className="brand-mark">G</span>
+        <span className="brand-mark">P</span>
         <span>{siteContent.brandName}</span>
       </a>
 
@@ -139,7 +139,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
           onClick={onToggleTheme}
           aria-label="Toggle theme"
         >
-          {theme === 'dark' ? '라이트 모드' : '다크 모드'}
+          {theme === 'dark' ? 'Light' : 'Dark'}
         </button>
         <label className="language-field">
           <span className="sr-only">Translate page</span>

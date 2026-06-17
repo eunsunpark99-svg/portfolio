@@ -1,23 +1,36 @@
-import AsyncDataList from '../components/AsyncDataList.jsx'
 import ContentTabs from '../components/ContentTabs.jsx'
-import FaqSection from '../components/FaqSection.jsx'
-import IntroCard from '../components/IntroCard.jsx'
-import ProductList from '../components/ProductList.jsx'
 import { siteContent } from '../data/siteContent.js'
-import { formatTitle } from '../utils/formatTitle.js'
 
 export default function HomePage() {
   return (
-    <section className="app-shell">
-      <IntroCard
-        eyebrow={siteContent.eyebrow}
-        title={formatTitle(siteContent.title)}
-        description={siteContent.description}
-      />
+    <section className="artist-home">
+      <section className="artist-hero" aria-labelledby="artist-title">
+        <aside className="artist-intro">
+          <p className="artist-kicker">Portfolio</p>
+          <h1 id="artist-title">{siteContent.title}</h1>
+          <p>{siteContent.description}</p>
+          <nav className="artist-index" aria-label="Artist sections">
+            <a href="/gallery">Works</a>
+            <a href="/about">Biography</a>
+            <a href="/gallery/exhibitions">Exhibitions</a>
+            <a href="/gallery/video">Video</a>
+            <a href="mailto:park.eunsun.artist@gmail.com">Contact</a>
+          </nav>
+        </aside>
+
+        <figure className="artist-feature">
+          <img
+            src="/images/about-feature.jpg"
+            alt="Line tape installation wall with a figure silhouette."
+          />
+          <figcaption>
+            <strong>Park Eunsun</strong>
+            <span>Line tape installation, spatial drawing and exhibition archive</span>
+          </figcaption>
+        </figure>
+      </section>
+
       <ContentTabs tabs={siteContent.tabs} />
-      <ProductList />
-      <AsyncDataList />
-      <FaqSection faqs={siteContent.faqs} />
     </section>
   )
 }

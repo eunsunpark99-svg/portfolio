@@ -4,17 +4,11 @@ export const siteContent = {
   title: '박은선 Eunsun Park',
   description: 'Artist · Curator · Web & Video',
   menuItems: [
-    { label: 'Home', href: '/' },
-    {
-      label: 'Gallery',
-      href: '/gallery',
-      children: [
-        { label: 'Paintings', href: '/gallery/paintings' },
-        { label: 'Photography', href: '/gallery/photography' },
-        { label: 'Exhibitions', href: '/gallery/exhibitions' },
-      ],
-    },
-    { label: 'About', href: '/about' },
+    { label: 'Works', href: '/gallery' },
+    { label: 'Exhibitions', href: '/gallery/exhibitions' },
+    { label: 'Video', href: '/gallery/video' },
+    { label: 'Biography', href: '/about' },
+    { label: 'Contact', href: 'mailto:park.eunsun.artist@gmail.com' },
   ],
   tabs: [
     {

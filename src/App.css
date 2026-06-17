@@ -9,17 +9,17 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Light Mode Primary Palette */
-  --color-primary: #1d2433;
-  --color-secondary: #536170;
-  --color-background: #f5f7fb;
+  --color-primary: #111111;
+  --color-secondary: #666666;
+  --color-background: #ffffff;
   --color-surface: #ffffff;
-  --color-text: #1d2433;
-  --color-text-muted: #94a3b8;
-  --color-border: #d7dee8;
+  --color-text: #111111;
+  --color-text-muted: #8a8a8a;
+  --color-border: #e4e4e4;
   
   /* Light Mode Additional Colors */
-  --color-surface-alt: #f1f5f9;
-  --color-surface-hover: #f0f4f8;
+  --color-surface-alt: #f7f7f7;
+  --color-surface-hover: #f2f2f2;
   --color-input-bg: #ffffff;
   --color-input-border: #d7dee8;
   --color-input-text: #1d2433;
