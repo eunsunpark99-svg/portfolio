@@ -13,6 +13,7 @@ const supportedRoutes = new Set([
   '/gallery/exhibitions',
   '/gallery/video',
   '/contact',
+  '/search',
 ])
 
 const parseRoute = () => {

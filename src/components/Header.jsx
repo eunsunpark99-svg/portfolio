@@ -4,13 +4,13 @@ import { siteContent } from '../data/siteContent.js'
 const languageOptions = [
   { label: 'Language', value: '' },
   { label: 'English', value: 'en' },
-  { label: 'Korean', value: 'ko' },
-  { label: 'Japanese', value: 'ja' },
-  { label: 'French', value: 'fr' },
-  { label: 'Arabic', value: 'ar' },
+  { label: '한국어', value: 'ko' },
+  { label: '日本語', value: 'ja' },
+  { label: 'Français', value: 'fr' },
+  { label: 'العربية', value: 'ar' },
   { label: 'Italiano', value: 'it' },
-  { label: 'Hebrew', value: 'he' },
-  { label: 'Other languages', value: 'other' },
+  { label: 'עברית', value: 'he' },
+  { label: 'More languages', value: 'other' },
 ]
 
 const socialLinks = [
@@ -61,6 +61,7 @@ const SocialIcon = ({ type }) => {
 export default function Header({ theme, onToggleTheme, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
+  const [searchTerm, setSearchTerm] = useState('')
 
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current)
@@ -104,6 +105,18 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
 
     event.preventDefault()
     onNavigate(href)
+    closeMenu()
+  }
+
+  const submitSearch = (event) => {
+    event.preventDefault()
+    const query = searchTerm.trim()
+
+    if (!query) {
+      return
+    }
+
+    onNavigate(`/search?q=${encodeURIComponent(query)}`)
     closeMenu()
   }
 
@@ -189,6 +202,24 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
             )
           })}
         </nav>
+        <form className="header-search" role="search" onSubmit={submitSearch}>
+          <label className="sr-only" htmlFor="site-search">
+            Search site
+          </label>
+          <input
+            id="site-search"
+            type="search"
+            value={searchTerm}
+            placeholder="Search"
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <button type="submit" aria-label="Search">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="6.5" />
+              <path d="m16 16 4 4" />
+            </svg>
+          </button>
+        </form>
         <button
           className="theme-toggle-button"
           type="button"
