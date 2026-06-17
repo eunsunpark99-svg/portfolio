@@ -343,6 +343,87 @@
   text-transform: uppercase;
 }
 
+.artist-page {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.artist-page-header {
+  display: grid;
+  gap: 12px;
+  max-width: 680px;
+  margin-bottom: 42px;
+}
+
+.artist-page-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.artist-page-header h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.artist-page-header span {
+  color: var(--color-secondary);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.artist-page-feature {
+  margin: 0;
+}
+
+.artist-page-feature img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.artist-page-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 42px;
+}
+
+.artist-page-item {
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+}
+
+.artist-page-item h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.artist-page-item p {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.artist-page-item span {
+  display: block;
+  margin-top: 12px;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 .intro {
   width: min(100%, 860px);
   padding: 42px 64px;
@@ -1702,6 +1783,20 @@ h1 {
 
   .artist-feature img {
     max-height: none;
+  }
+
+  .artist-page {
+    padding: 40px 20px 72px;
+  }
+
+  .artist-page-header {
+    margin-bottom: 28px;
+  }
+
+  .artist-page-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 32px;
   }
 
   .content-tabs {

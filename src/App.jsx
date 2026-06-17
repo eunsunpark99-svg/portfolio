@@ -5,11 +5,22 @@ import Main from './components/Main.jsx'
 import AuthPage from './pages/AuthPage.jsx'
 import './App.css'
 
+const supportedRoutes = new Set([
+  '/',
+  '/auth',
+  '/gallery',
+  '/about',
+  '/gallery/exhibitions',
+  '/gallery/video',
+  '/contact',
+])
+
 const parseRoute = () => {
   if (typeof window === 'undefined') {
     return '/'
   }
-  return window.location.pathname === '/auth' ? '/auth' : '/'
+
+  return supportedRoutes.has(window.location.pathname) ? window.location.pathname : '/'
 }
 
 export default function App() {
@@ -49,7 +60,7 @@ export default function App() {
   return (
     <div className="app">
       <Header theme={theme} onToggleTheme={toggleTheme} onNavigate={navigate} />
-      {route === '/auth' ? <AuthPage /> : <Main />}
+      {route === '/auth' ? <AuthPage /> : <Main route={route} onNavigate={navigate} />}
       <Footer />
     </div>
   )

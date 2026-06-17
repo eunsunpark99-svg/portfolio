@@ -8,7 +8,7 @@ export const siteContent = {
     { label: 'Exhibitions', href: '/gallery/exhibitions' },
     { label: 'Video', href: '/gallery/video' },
     { label: 'Biography', href: '/about' },
-    { label: 'Contact', href: 'mailto:park.eunsun.artist@gmail.com' },
+    { label: 'Contact', href: '/contact' },
   ],
   tabs: [
     {

@@ -51,9 +51,20 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
     )}`
   }
 
+  const followLink = (event, href) => {
+    if (!href.startsWith('/')) {
+      closeMenu()
+      return
+    }
+
+    event.preventDefault()
+    onNavigate(href)
+    closeMenu()
+  }
+
   return (
     <header className="site-header">
-      <a className="brand" href="/">
+      <a className="brand" href="/" onClick={(event) => followLink(event, '/')}>
         <span className="brand-mark">P</span>
         <span>{siteContent.brandName}</span>
       </a>
@@ -86,7 +97,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
                   key={item.href}
                   className="nav-link"
                   href={item.href}
-                  onClick={closeMenu}
+                  onClick={(event) => followLink(event, item.href)}
                 >
                   {item.label}
                 </a>
@@ -123,7 +134,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
                       key={child.href}
                       className="dropdown-link"
                       href={child.href}
-                      onClick={closeMenu}
+                      onClick={(event) => followLink(event, child.href)}
                     >
                       {child.label}
                     </a>
