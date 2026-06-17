@@ -365,6 +365,86 @@
   padding: 56px 24px 96px;
 }
 
+.featured-work-slider {
+  margin-bottom: 64px;
+}
+
+.featured-work-stage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(360px, 58vw, 680px);
+  overflow: hidden;
+  background: var(--color-surface-alt);
+}
+
+.featured-work-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.035) translateX(18px);
+  transition:
+    opacity 900ms ease,
+    transform 5200ms linear;
+}
+
+.featured-work-image.is-active {
+  opacity: 1;
+  transform: scale(1.06) translateX(-18px);
+}
+
+.featured-work-caption {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 14px;
+  color: var(--color-secondary);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.featured-work-caption p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.featured-work-caption span {
+  display: block;
+  margin-top: 4px;
+}
+
+.featured-work-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.featured-work-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.featured-work-dots button {
+  width: 18px;
+  height: 1px;
+  padding: 0;
+  border-radius: 0;
+  background: var(--color-border);
+  box-shadow: none;
+}
+
+.featured-work-dots button.is-active {
+  background: var(--color-primary);
+}
+
 .artist-hero {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -1137,6 +1217,15 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .featured-work-image {
+    transition: opacity 180ms ease;
+    transform: none;
+  }
+
+  .featured-work-image.is-active {
+    transform: none;
+  }
+
   .product-card {
     transition: none;
   }
@@ -1974,6 +2063,19 @@ h1 {
 
   .artist-home {
     padding: 34px 20px 72px;
+  }
+
+  .featured-work-slider {
+    margin-bottom: 42px;
+  }
+
+  .featured-work-stage {
+    min-height: 300px;
+  }
+
+  .featured-work-caption {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .artist-hero {

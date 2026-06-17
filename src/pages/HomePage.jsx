@@ -1,4 +1,5 @@
 import ContentTabs from '../components/ContentTabs.jsx'
+import FeaturedWorkSlider from '../components/FeaturedWorkSlider.jsx'
 import { siteContent } from '../data/siteContent.js'
 import { getCopy } from '../data/translations.js'
 
@@ -12,6 +13,8 @@ export default function HomePage({ language, onNavigate }) {
 
   return (
     <section className="artist-home">
+      <FeaturedWorkSlider />
+
       <section className="artist-hero" aria-labelledby="artist-title">
         <aside className="artist-intro">
           <h1 id="artist-title">{copy.home.title}</h1>
