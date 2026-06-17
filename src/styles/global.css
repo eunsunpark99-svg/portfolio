@@ -367,8 +367,8 @@
 
 .artist-hero {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 72px;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 64px;
   align-items: start;
 }
 
@@ -390,27 +390,28 @@
 .artist-intro h1 {
   margin: 0;
   color: var(--color-primary);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
   font-weight: 600;
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .artist-intro p {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: var(--color-secondary);
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: 0.82rem;
+  line-height: 1.6;
 }
 
 .artist-index {
   display: grid;
-  gap: 10px;
-  margin-top: 44px;
+  gap: 9px;
+  margin-top: 42px;
 }
 
 .artist-index a {
   color: var(--color-text-muted);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
@@ -1959,8 +1960,9 @@ h1 {
     position: static;
   }
 
-  .artist-kicker {
-    margin-bottom: 24px;
+  .artist-intro h1 {
+    font-size: clamp(1.02rem, 5vw, 1.28rem);
+    white-space: normal;
   }
 
   .artist-index {
