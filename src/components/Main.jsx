@@ -1,6 +1,7 @@
 import ArtistSectionPage from '../pages/ArtistSectionPage.jsx'
 import HomePage from '../pages/HomePage.jsx'
 import SearchPage from '../pages/SearchPage.jsx'
+import WorkDetailPage from '../pages/WorkDetailPage.jsx'
 
 const sectionRoutes = new Set([
   '/gallery',
@@ -15,6 +16,8 @@ export default function Main({ route, language, onNavigate }) {
     <main className="app-main">
       {route === '/search' ? (
         <SearchPage language={language} onNavigate={onNavigate} />
+      ) : route.startsWith('/works/') ? (
+        <WorkDetailPage route={route} onNavigate={onNavigate} />
       ) : sectionRoutes.has(route) ? (
         <ArtistSectionPage language={language} route={route} />
       ) : (

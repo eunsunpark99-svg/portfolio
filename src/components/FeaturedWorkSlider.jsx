@@ -1,27 +1,7 @@
 import { useEffect, useState } from 'react'
+import { featuredWorks } from '../data/featuredWorks.js'
 
-const featuredWorks = [
-  {
-    title: 'Line Tape Installation',
-    meta: 'Spatial drawing / exhibition archive',
-    image: '/images/about-feature.jpg',
-    alt: 'Yellow installation wall with black line tape and a standing figure silhouette.',
-  },
-  {
-    title: 'Image Study',
-    meta: 'Artwork documentation',
-    image: '/images/gallery-feature.jpg',
-    alt: 'Blue cup and spoon artwork preview.',
-  },
-  {
-    title: 'Video Archive',
-    meta: 'Moving image / project preview',
-    image: '/images/video-feature.jpg',
-    alt: 'Video preview image with Korean title text.',
-  },
-]
-
-export default function FeaturedWorkSlider() {
+export default function FeaturedWorkSlider({ onNavigate }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
@@ -35,10 +15,21 @@ export default function FeaturedWorkSlider() {
   const activeWork = featuredWorks[activeIndex]
   const displayIndex = String(activeIndex + 1).padStart(2, '0')
   const total = String(featuredWorks.length).padStart(2, '0')
+  const activeHref = `/works/${activeWork.slug}`
+
+  const followWork = (event, href) => {
+    event.preventDefault()
+    onNavigate(href)
+  }
 
   return (
     <section className="featured-work-slider" aria-label="Featured works">
-      <div className="featured-work-stage">
+      <a
+        className="featured-work-stage"
+        href={activeHref}
+        onClick={(event) => followWork(event, activeHref)}
+        aria-label={`View details for ${activeWork.title}`}
+      >
         {featuredWorks.map((work, index) => (
           <img
             key={work.image}
@@ -50,11 +41,14 @@ export default function FeaturedWorkSlider() {
             aria-hidden={index === activeIndex ? 'false' : 'true'}
           />
         ))}
-      </div>
+        <span className="featured-work-cta">View work</span>
+      </a>
 
       <div className="featured-work-caption">
         <div>
-          <p>{activeWork.title}</p>
+          <a href={activeHref} onClick={(event) => followWork(event, activeHref)}>
+            {activeWork.title}
+          </a>
           <span>{activeWork.meta}</span>
         </div>
         <div className="featured-work-progress" aria-label={`${displayIndex} of ${total}`}>

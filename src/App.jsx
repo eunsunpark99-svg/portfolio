@@ -22,6 +22,10 @@ const parseRoute = () => {
     return '/'
   }
 
+  if (window.location.pathname.startsWith('/works/')) {
+    return window.location.pathname
+  }
+
   return supportedRoutes.has(window.location.pathname) ? window.location.pathname : '/'
 }
 

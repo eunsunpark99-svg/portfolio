@@ -13,7 +13,7 @@ export default function HomePage({ language, onNavigate }) {
 
   return (
     <section className="artist-home">
-      <FeaturedWorkSlider />
+      <FeaturedWorkSlider onNavigate={onNavigate} />
 
       <section className="artist-hero" aria-labelledby="artist-title">
         <aside className="artist-intro">
