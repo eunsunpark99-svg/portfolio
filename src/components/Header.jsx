@@ -16,20 +16,47 @@ const languageOptions = [
 const socialLinks = [
   {
     label: 'Instagram',
-    mark: 'IG',
+    type: 'instagram',
     href: 'https://www.instagram.com/park.eunsun_artist/',
   },
   {
     label: 'Facebook',
-    mark: 'f',
+    type: 'facebook',
     href: 'https://www.facebook.com/artepes',
   },
   {
     label: 'Blog',
-    mark: 'B',
+    type: 'blog',
     href: 'https://blog.naver.com/artepes',
   },
 ]
+
+const SocialIcon = ({ type }) => {
+  if (type === 'instagram') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <rect x="5" y="5" width="14" height="14" rx="4" />
+        <circle cx="12" cy="12" r="3.2" />
+        <circle cx="16.2" cy="7.8" r="1" />
+      </svg>
+    )
+  }
+
+  if (type === 'facebook') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M14.1 8.3h2V5.1c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.6H6v3.6h2.9V23h3.8v-7.3h3l.5-3.6h-3.5V9.9c0-1 .3-1.6 1.4-1.6Z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M4.5 5.5h15v10.6h-8.1L7.6 20v-3.9H4.5V5.5Z" />
+      <path d="M8.2 9h2.7c1.3 0 2.1.7 2.1 1.7 0 .6-.3 1.1-.8 1.4.7.3 1.1.8 1.1 1.6 0 1.2-.9 2-2.3 2H8.2V9Zm2.5 2.4c.5 0 .8-.2.8-.6s-.3-.6-.8-.6H9.8v1.2h.9Zm.2 3c.5 0 .8-.3.8-.7 0-.4-.3-.7-.9-.7h-1v1.4h1.1Z" />
+    </svg>
+  )
+}
 
 export default function Header({ theme, onToggleTheme, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -189,7 +216,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
           {socialLinks.map((link) => (
             <a
               key={link.label}
-              className="social-link"
+              className={`social-link social-link-${link.type}`}
               href={link.href}
               target="_blank"
               rel="noreferrer"
@@ -197,7 +224,7 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
               title={link.label}
               onClick={closeMenu}
             >
-              {link.mark}
+              <SocialIcon type={link.type} />
             </a>
           ))}
         </div>
