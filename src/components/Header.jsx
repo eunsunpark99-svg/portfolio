@@ -13,6 +13,24 @@ const languageOptions = [
   { label: 'Other languages', value: 'other' },
 ]
 
+const socialLinks = [
+  {
+    label: 'Instagram',
+    mark: 'IG',
+    href: 'https://www.instagram.com/park.eunsun_artist/',
+  },
+  {
+    label: 'Facebook',
+    mark: 'f',
+    href: 'https://www.facebook.com/artepes',
+  },
+  {
+    label: 'Blog',
+    mark: 'B',
+    href: 'https://blog.naver.com/artepes',
+  },
+]
+
 export default function Header({ theme, onToggleTheme, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
@@ -167,6 +185,22 @@ export default function Header({ theme, onToggleTheme, onNavigate }) {
             ))}
           </select>
         </label>
+        <div className="social-links" aria-label="Social links">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              className="social-link"
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.label}
+              title={link.label}
+              onClick={closeMenu}
+            >
+              {link.mark}
+            </a>
+          ))}
+        </div>
         <button
           className="login-button"
           type="button"
