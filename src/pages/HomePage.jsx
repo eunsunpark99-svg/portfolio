@@ -14,7 +14,6 @@ export default function HomePage({ language, onNavigate }) {
   return (
     <section className="artist-home">
       <section className="gallery-hero" aria-labelledby="gallery-hero-title">
-        <p className="gallery-hero-kicker">{copy.ui.portfolio}</p>
         <h1 id="gallery-hero-title">{copy.home.title}</h1>
         <p>{copy.home.description}</p>
         <div className="gallery-hero-actions">

@@ -2,7 +2,7 @@ export const siteContent = {
   eyebrow: '',
   brandName: '박은선',
   title: '박은선 Eunsun Park',
-  description: 'Artist · Curator · Web & Video',
+  description: 'Visual Artist · Curator · Web & Video',
   menuItems: [
     { label: 'Works', href: '/gallery' },
     { label: 'Exhibitions', href: '/gallery/exhibitions' },

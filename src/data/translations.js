@@ -36,7 +36,7 @@ export const translations = {
     },
     home: {
       title: '박은선 Eunsun Park',
-      description: 'Artist · Curator · Web & Video',
+      description: 'Visual Artist · Curator · Web & Video',
       captionTitle: 'Park Eunsun',
       caption: 'Line tape installation, spatial drawing and exhibition archive',
     },
@@ -65,7 +65,7 @@ export const translations = {
     },
     home: {
       title: '박은선 Eunsun Park',
-      description: '작가 · 큐레이터 · 웹 & 영상',
+      description: '비주얼 아티스트 · 큐레이터 · 웹 & 영상',
       captionTitle: '박은선',
       caption: '라인테이프 설치, 공간 드로잉과 전시 아카이브',
     },
