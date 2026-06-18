@@ -53,24 +53,6 @@ export default function FeaturedWorkSlider({ onNavigate }) {
             />
           ))}
 
-          <span className="featured-work-scrim" aria-hidden="true" />
-
-          <span className="featured-work-label">
-            <span>Park Eunsun</span>
-            <strong>{activeWork.meta}</strong>
-          </span>
-
-          <span className="featured-work-title">
-            <span>{activeWork.year}</span>
-            <strong>{activeWork.title}</strong>
-          </span>
-
-          <span className="featured-work-note">
-            <span>Archive</span>
-            <strong>{activeWork.medium}</strong>
-          </span>
-
-          <span className="featured-work-cta">View work</span>
         </a>
 
         <div className="featured-work-footer">
@@ -94,7 +76,9 @@ export default function FeaturedWorkSlider({ onNavigate }) {
               >
                 ◀
               </button>
-              <strong>{displayIndex}/{total}</strong>
+              <strong>
+                <span>{displayIndex}</span>/{total}
+              </strong>
               <button
                 type="button"
                 className="featured-control-arrow"
