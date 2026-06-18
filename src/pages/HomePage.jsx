@@ -3,6 +3,8 @@ import FeaturedWorkSlider from '../components/FeaturedWorkSlider.jsx'
 import { siteContent } from '../data/siteContent.js'
 import { getCopy } from '../data/translations.js'
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export default function HomePage({ language, onNavigate }) {
   const copy = getCopy(language)
 
@@ -67,7 +69,7 @@ export default function HomePage({ language, onNavigate }) {
 
         <figure className="artist-feature">
           <img
-            src="/images/about-feature.jpg"
+            src={assetPath('images/about-feature.jpg')}
             alt="Line tape installation wall with a figure silhouette."
           />
           <figcaption>

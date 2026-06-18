@@ -1,3 +1,5 @@
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const products = [
   {
     id: 'image-gallery-preview',
@@ -12,7 +14,7 @@ export const products = [
     popularity: 45,
     favorite: false,
     liked: false,
-    thumbnail: '/images/gallery-feature.jpg',
+    thumbnail: assetPath('images/gallery-feature.jpg'),
     alt: 'A blue cup on an orange table with a spoon lifting liquid from it.',
     href: 'https://www.instagram.com/park.eunsun_artist/',
     tags: ['Image', 'Composition', 'Portfolio'],
@@ -30,7 +32,7 @@ export const products = [
     popularity: 76,
     favorite: false,
     liked: false,
-    thumbnail: '/images/video-feature.jpg',
+    thumbnail: assetPath('images/video-feature.jpg'),
     videoSrc: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
     alt: 'A teal-toned airport lobby scene with Korean title text overlaid.',
     href: 'https://www.facebook.com/artepes',
@@ -49,7 +51,7 @@ export const products = [
     popularity: 58,
     favorite: false,
     liked: false,
-    thumbnail: '/images/about-feature.jpg',
+    thumbnail: assetPath('images/about-feature.jpg'),
     sitePreviewSrc: 'https://www.example.com',
     alt: 'A yellow installation wall with black line tape and a standing figure silhouette.',
     href: 'https://blog.naver.com/artepes',

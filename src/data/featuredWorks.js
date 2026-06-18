@@ -1,3 +1,5 @@
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const featuredWorks = [
   {
     slug: 'line-tape-installation',
@@ -5,7 +7,7 @@ export const featuredWorks = [
     meta: 'Spatial drawing / exhibition archive',
     year: '2026',
     medium: 'Line tape, wall drawing, installation documentation',
-    image: '/images/about-feature.jpg',
+    image: assetPath('images/about-feature.jpg'),
     alt: 'Yellow installation wall with black line tape and a standing figure silhouette.',
     description:
       'A spatial drawing project that uses line tape to trace, divide, and activate the architectural surface.',
@@ -21,7 +23,7 @@ export const featuredWorks = [
     meta: 'Artwork documentation',
     year: '2026',
     medium: 'Photography, image archive',
-    image: `${import.meta.env.BASE_URL}images/gallery-feature.jpg`,
+    image: assetPath('images/gallery-feature.jpg'),
     description:
       'A selected image archive for introducing visual studies, still images, and project documentation.',
     details: [
@@ -36,7 +38,7 @@ export const featuredWorks = [
     meta: 'Moving image / project preview',
     year: '2026',
     medium: 'Video, exhibition walkthrough, digital archive',
-    image: '/images/video-feature.jpg',
+    image: assetPath('images/video-feature.jpg'),
     alt: 'Video preview image with Korean title text.',
     description:
       'A video-oriented archive for moving image works, walkthroughs, interviews, and process documentation.',

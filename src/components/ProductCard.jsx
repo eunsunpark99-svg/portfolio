@@ -4,17 +4,19 @@ const currencyFormatter = new Intl.NumberFormat('ko-KR', {
   maximumFractionDigits: 0,
 })
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const thumbnailByType = {
   image: {
-    src: '/images/gallery-feature.jpg',
+    src: assetPath('images/gallery-feature.jpg'),
     alt: 'Image product thumbnail.',
   },
   video: {
-    src: '/images/video-feature.jpg',
+    src: assetPath('images/video-feature.jpg'),
     alt: 'Video product thumbnail.',
   },
   site: {
-    src: '/images/about-feature.jpg',
+    src: assetPath('images/about-feature.jpg'),
     alt: 'Site product thumbnail.',
   },
 }

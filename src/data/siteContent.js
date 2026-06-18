@@ -1,3 +1,5 @@
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const siteContent = {
   eyebrow: '',
   brandName: '박은선',
@@ -18,7 +20,7 @@ export const siteContent = {
       description:
         'Explore selected visual works with a clean layout for browsing artwork and project images.',
       image: {
-        src: '/images/gallery-feature.jpg',
+        src: assetPath('images/gallery-feature.jpg'),
         alt: 'A blue cup on an orange table with a spoon lifting liquid from it.',
         href: 'https://www.instagram.com/park.eunsun_artist/',
       },
@@ -47,7 +49,7 @@ export const siteContent = {
       description:
         'Switch to video content for exhibition clips, walkthroughs, and behind-the-scenes stories.',
       image: {
-        src: '/images/video-feature.jpg',
+        src: assetPath('images/video-feature.jpg'),
         alt: 'A teal-toned airport lobby scene with Korean title text overlaid.',
         href: 'https://www.facebook.com/artepes',
       },
@@ -76,7 +78,7 @@ export const siteContent = {
       description:
         '박은선 작가는 라인테이프를 주요 매체로 삼아 공간의 표면과 구조를 새롭게 읽어내는 설치 작업을 선보입니다.',
       image: {
-        src: '/images/about-feature.jpg',
+        src: assetPath('images/about-feature.jpg'),
         alt: 'A yellow installation wall with black line tape and a standing figure silhouette.',
         href: 'https://blog.naver.com/artepes',
       },

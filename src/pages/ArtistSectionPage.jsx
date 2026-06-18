@@ -1,12 +1,14 @@
 import { getCopy } from '../data/translations.js'
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const sectionContent = {
   '/gallery': {
     kicker: 'Works',
     title: 'Selected Works',
     description:
       'A focused archive of image-based works, installation views, spatial drawings, and visual studies.',
-    image: '/images/gallery-feature.jpg',
+    image: assetPath('images/gallery-feature.jpg'),
     imageAlt: 'Blue cup and spoon artwork preview.',
     items: [
       {
@@ -31,7 +33,7 @@ const sectionContent = {
     title: 'Biography',
     description:
       'Park Eunsun is an artist, curator, and web/video maker working across visual art, exhibition planning, and digital presentation.',
-    image: '/images/about-feature.jpg',
+    image: assetPath('images/about-feature.jpg'),
     imageAlt: 'Yellow installation wall with black line tape and figure silhouette.',
     items: [
       {
@@ -51,7 +53,7 @@ const sectionContent = {
     title: 'Exhibitions',
     description:
       'Selected solo, group, and curated exhibition projects will be organized here with dates, venues, and documentation.',
-    image: '/images/about-feature.jpg',
+    image: assetPath('images/about-feature.jpg'),
     imageAlt: 'Installation documentation preview.',
     items: [
       {
@@ -71,7 +73,7 @@ const sectionContent = {
     title: 'Video',
     description:
       'Video works, exhibition walkthroughs, interviews, and process documentation will be collected here.',
-    image: '/images/video-feature.jpg',
+    image: assetPath('images/video-feature.jpg'),
     imageAlt: 'Video preview image with Korean title text.',
     items: [
       {
@@ -91,7 +93,7 @@ const sectionContent = {
     title: 'Contact',
     description:
       'For exhibitions, collaborations, curatorial projects, and portfolio inquiries.',
-    image: '/images/gallery-feature.jpg',
+    image: assetPath('images/gallery-feature.jpg'),
     imageAlt: 'Artwork image preview.',
     items: [
       {
