@@ -1,5 +1,6 @@
 node_modules
 dist
+_work/
 .env
 .env.local
 .DS_Store
