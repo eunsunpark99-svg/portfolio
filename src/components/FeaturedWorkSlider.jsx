@@ -77,12 +77,41 @@ export default function FeaturedWorkSlider({ onNavigate }) {
           <button type="button" onClick={showPrevious}>
             backward
           </button>
-          <span className="featured-control-arrow">◀</span>
+          <button
+            type="button"
+            className="featured-control-arrow"
+            onClick={showPrevious}
+            aria-label="Previous featured work"
+          >
+            ◀
+          </button>
           <strong>{displayIndex}/{total}</strong>
-          <span className="featured-control-arrow">▶</span>
+          <button
+            type="button"
+            className="featured-control-arrow"
+            onClick={showNext}
+            aria-label="Next featured work"
+          >
+            ▶
+          </button>
           <button type="button" onClick={showNext}>
             forward
           </button>
+        </div>
+
+        <div className="featured-work-numbers" aria-label="Featured work numbers">
+          {featuredWorks.map((work, index) => (
+            <button
+              key={work.slug}
+              className={index === activeIndex ? 'is-active' : ''}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Show ${work.title}`}
+              aria-current={index === activeIndex ? 'true' : undefined}
+            >
+              {String(index + 1).padStart(2, '0')}
+            </button>
+          ))}
         </div>
       </div>
     </section>

@@ -530,12 +530,47 @@
   font: inherit;
 }
 
+.featured-work-controls button:hover,
+.featured-work-controls button:focus-visible {
+  color: #c50000;
+}
+
 .featured-work-controls strong {
   color: #c50000;
   font-size: 0.94em;
 }
 
 .featured-control-arrow {
+  color: #c50000;
+  cursor: pointer;
+}
+
+.featured-work-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 16px 14px;
+}
+
+.featured-work-numbers button {
+  min-width: 42px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgb(17 17 17 / 24%);
+  border-radius: 0;
+  background: rgb(255 255 255 / 62%);
+  color: #111111;
+  box-shadow: none;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.featured-work-numbers button:hover,
+.featured-work-numbers button:focus-visible,
+.featured-work-numbers button.is-active {
+  border-color: #c50000;
+  background: #fff7ed;
   color: #c50000;
 }
 
