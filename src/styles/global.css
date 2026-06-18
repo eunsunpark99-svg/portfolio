@@ -377,6 +377,12 @@
   overflow: hidden;
   background: var(--color-surface-alt);
   cursor: pointer;
+  box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .featured-work-image {
@@ -419,6 +425,12 @@
 .featured-work-stage:focus-visible .featured-work-cta {
   opacity: 1;
   transform: translateY(0);
+}
+
+.featured-work-stage:hover,
+.featured-work-stage:focus-visible {
+  box-shadow: 0 28px 64px rgb(17 17 17 / 22%);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .featured-work-caption {
@@ -532,6 +544,13 @@
 
 .artist-feature {
   margin: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .artist-feature img {
@@ -539,6 +558,11 @@
   width: 100%;
   max-height: 680px;
   object-fit: cover;
+}
+
+.artist-feature:hover {
+  box-shadow: 0 28px 64px rgb(17 17 17 / 22%);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .artist-feature figcaption {
@@ -595,6 +619,13 @@
 
 .artist-page-feature {
   margin: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .artist-page-feature img {
@@ -602,6 +633,11 @@
   width: 100%;
   max-height: 620px;
   object-fit: cover;
+}
+
+.artist-page-feature:hover {
+  box-shadow: 0 28px 64px rgb(17 17 17 / 22%);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .artist-page-list {
@@ -669,6 +705,13 @@
 
 .work-detail-image {
   margin: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .work-detail-image img {
@@ -676,6 +719,11 @@
   width: 100%;
   max-height: 720px;
   object-fit: cover;
+}
+
+.work-detail-image:hover {
+  box-shadow: 0 28px 64px rgb(17 17 17 / 22%);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .work-detail-copy {
@@ -916,6 +964,12 @@ h1 {
   color: #ffffff;
   font-size: 1.15rem;
   font-weight: 900;
+  box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
+  transform: translateY(0) scale(1);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .tab-visual img {
@@ -923,6 +977,12 @@ h1 {
   height: 100%;
   max-height: 520px;
   object-fit: cover;
+}
+
+.tab-visual:hover,
+.tab-visual:focus-within {
+  box-shadow: 0 28px 64px rgb(17 17 17 / 22%);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .tab-visual-link {
