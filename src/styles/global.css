@@ -371,7 +371,7 @@
 
 .featured-work-frame {
   width: 100%;
-  background: #f3f0d5;
+  background: #ffffff;
 }
 
 .featured-work-stage {
@@ -380,7 +380,7 @@
   width: 100%;
   min-height: clamp(280px, 42vw, 560px);
   overflow: hidden;
-  background: #e7e1c4;
+  background: #ffffff;
   cursor: pointer;
   box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
   transform: translateY(0) scale(1);
