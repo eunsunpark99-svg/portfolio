@@ -13,8 +13,8 @@ export default function FeaturedWorkSlider({ onNavigate }) {
   }, [])
 
   const activeWork = featuredWorks[activeIndex]
-  const displayIndex = String(activeIndex + 1).padStart(2, '0')
-  const total = String(featuredWorks.length).padStart(2, '0')
+  const displayIndex = String(activeIndex + 1)
+  const total = String(featuredWorks.length)
   const activeHref = `/works/${activeWork.slug}`
 
   const followWork = (event, href) => {
@@ -65,9 +65,6 @@ export default function FeaturedWorkSlider({ onNavigate }) {
 
           <div className="featured-work-nav">
             <div className="featured-work-controls" aria-label={`${displayIndex} of ${total}`}>
-              <button type="button" onClick={showPrevious}>
-                backward
-              </button>
               <button
                 type="button"
                 className="featured-control-arrow"
@@ -87,9 +84,6 @@ export default function FeaturedWorkSlider({ onNavigate }) {
               >
                 ▶
               </button>
-              <button type="button" onClick={showNext}>
-                forward
-              </button>
             </div>
 
             <div className="featured-work-numbers" aria-label="Featured work numbers">
@@ -102,7 +96,7 @@ export default function FeaturedWorkSlider({ onNavigate }) {
                   aria-label={`Show ${work.title}`}
                   aria-current={index === activeIndex ? 'true' : undefined}
                 >
-                  {String(index + 1).padStart(2, '0')}
+                  {index + 1}
                 </button>
               ))}
             </div>
