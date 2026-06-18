@@ -369,13 +369,18 @@
   margin-bottom: 64px;
 }
 
+.featured-work-frame {
+  width: 100%;
+  background: #f3f0d5;
+}
+
 .featured-work-stage {
   position: relative;
   display: block;
   width: 100%;
-  min-height: clamp(360px, 58vw, 680px);
+  min-height: clamp(280px, 42vw, 560px);
   overflow: hidden;
-  background: var(--color-surface-alt);
+  background: #e7e1c4;
   cursor: pointer;
   box-shadow: 0 12px 32px rgb(17 17 17 / 6%);
   transform: translateY(0) scale(1);
@@ -401,11 +406,81 @@
   transform: none;
 }
 
+.featured-work-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgb(246 244 229 / 90%), rgb(246 244 229 / 35%) 44%, rgb(246 244 229 / 72%)),
+    radial-gradient(circle at 54% 42%, rgb(255 255 255 / 24%), transparent 32%);
+}
+
+.featured-work-label,
+.featured-work-title,
+.featured-work-note {
+  position: absolute;
+  z-index: 2;
+  color: #111111;
+}
+
+.featured-work-label {
+  top: clamp(18px, 3vw, 34px);
+  left: clamp(24px, 7vw, 118px);
+  display: grid;
+  gap: 8px;
+  padding-left: 18px;
+  border-left: 1px solid rgb(17 17 17 / 42%);
+}
+
+.featured-work-label span,
+.featured-work-note span {
+  font-size: clamp(0.76rem, 1.2vw, 0.94rem);
+  font-weight: 700;
+}
+
+.featured-work-label strong,
+.featured-work-note strong {
+  max-width: 240px;
+  font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.featured-work-title {
+  left: 50%;
+  top: 48%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: min(72%, 620px);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.featured-work-title span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2vw, 2rem);
+}
+
+.featured-work-title strong {
+  font-size: clamp(3.2rem, 8.4vw, 8.8rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.featured-work-note {
+  right: clamp(24px, 7vw, 118px);
+  bottom: clamp(24px, 4vw, 58px);
+  display: grid;
+  gap: 7px;
+  text-align: right;
+}
+
 .featured-work-cta {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  z-index: 2;
+  z-index: 3;
   padding: 8px 12px;
   background: rgb(255 255 255 / 88%);
   color: #111111;
@@ -431,59 +506,37 @@
   transform: translateY(-6px) scale(1.03);
 }
 
-.featured-work-caption {
+.featured-work-controls {
   display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 14px;
-  color: var(--color-secondary);
-  font-size: 0.78rem;
-  line-height: 1.45;
-}
-
-.featured-work-caption a {
-  margin: 0;
-  color: var(--color-primary);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.featured-work-caption a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.featured-work-caption span {
-  display: block;
-  margin-top: 4px;
-}
-
-.featured-work-progress {
-  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 6px 16px 8px;
+  color: #111111;
+  font-size: clamp(0.9rem, 1.5vw, 1.08rem);
+  font-weight: 800;
+  line-height: 1;
 }
 
-.featured-work-dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.featured-work-dots button {
-  width: 18px;
-  height: 1px;
+.featured-work-controls button {
+  min-height: auto;
   padding: 0;
+  border: 0;
   border-radius: 0;
-  background: var(--color-border);
+  background: transparent;
+  color: inherit;
   box-shadow: none;
+  font: inherit;
 }
 
-.featured-work-dots button.is-active {
-  background: var(--color-primary);
+.featured-work-controls strong {
+  color: #c50000;
+  font-size: 0.94em;
+}
+
+.featured-control-arrow {
+  color: #c50000;
 }
 
 .artist-hero {
@@ -2289,9 +2342,26 @@ h1 {
     min-height: 300px;
   }
 
-  .featured-work-caption {
-    flex-direction: column;
-    gap: 12px;
+  .featured-work-label {
+    left: 20px;
+    top: 18px;
+    max-width: 42%;
+  }
+
+  .featured-work-title {
+    top: 54%;
+    width: 78%;
+  }
+
+  .featured-work-note {
+    right: 20px;
+    bottom: 22px;
+    max-width: 44%;
+  }
+
+  .featured-work-controls {
+    min-height: 38px;
+    font-size: 0.9rem;
   }
 
   .artist-hero {
