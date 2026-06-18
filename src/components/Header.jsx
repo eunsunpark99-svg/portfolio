@@ -126,10 +126,6 @@ export default function Header({
     <header className="site-header">
       <a className="brand" href="/" onClick={(event) => followLink(event, '/')}>
         <span className="brand-mark" aria-hidden="true">E</span>
-        <span className="brand-name">
-          <span className="brand-name-ko">{siteContent.brandName}</span>
-          <span className="brand-name-en">Eunsun Park</span>
-        </span>
       </a>
 
       <button
