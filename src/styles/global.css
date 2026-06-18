@@ -392,15 +392,13 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.035) translateX(18px);
-  transition:
-    opacity 900ms ease,
-    transform 5200ms linear;
+  transform: none;
+  transition: opacity 180ms ease;
 }
 
 .featured-work-image.is-active {
   opacity: 1;
-  transform: scale(1.06) translateX(-18px);
+  transform: none;
 }
 
 .featured-work-cta {

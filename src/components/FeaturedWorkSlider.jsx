@@ -7,7 +7,7 @@ export default function FeaturedWorkSlider({ onNavigate }) {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % featuredWorks.length)
-    }, 5200)
+    }, 2000)
 
     return () => window.clearInterval(timer)
   }, [])
