@@ -110,6 +110,8 @@ export default function ProductDetailModal({ product, onClose, onDelete, onSaveR
               title={product.title}
               src={product.sitePreviewSrc || product.href}
               loading="lazy"
+              referrerPolicy="no-referrer"
+              sandbox="allow-scripts allow-same-origin"
             />
           </div>
         ) : (
@@ -118,7 +120,7 @@ export default function ProductDetailModal({ product, onClose, onDelete, onSaveR
               className="modal-thumbnail-link"
               href={product.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <img
                 className={`modal-thumbnail ${product.type === 'image' ? 'modal-thumbnail--large' : ''}`}
@@ -311,7 +313,7 @@ export default function ProductDetailModal({ product, onClose, onDelete, onSaveR
               className="modal-link"
               href={product.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               원본 보기
             </a>

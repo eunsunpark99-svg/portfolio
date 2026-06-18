@@ -99,7 +99,7 @@ export default function ContentTabs({ language, tabs }) {
               className="tab-visual-link"
               href={activeTab.image.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <img src={activeTab.image.src} alt={activeTab.image.alt} />
             </a>

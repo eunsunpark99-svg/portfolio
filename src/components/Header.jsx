@@ -244,7 +244,7 @@ export default function Header({
               className={`social-link social-link-${link.type}`}
               href={link.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label={link.label}
               title={link.label}
               onClick={closeMenu}
