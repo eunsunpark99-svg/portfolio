@@ -13,6 +13,28 @@ export default function HomePage({ language, onNavigate }) {
 
   return (
     <section className="artist-home">
+      <section className="gallery-hero" aria-labelledby="gallery-hero-title">
+        <p className="gallery-hero-kicker">{copy.ui.portfolio}</p>
+        <h1 id="gallery-hero-title">{copy.home.title}</h1>
+        <p>{copy.home.description}</p>
+        <div className="gallery-hero-actions">
+          <a
+            className="gallery-hero-primary"
+            href="/gallery"
+            onClick={(event) => followLink(event, '/gallery')}
+          >
+            {copy.nav['/gallery']}
+          </a>
+          <a
+            className="gallery-hero-secondary"
+            href="/contact"
+            onClick={(event) => followLink(event, '/contact')}
+          >
+            {copy.nav['/contact']}
+          </a>
+        </div>
+      </section>
+
       <FeaturedWorkSlider onNavigate={onNavigate} />
 
       <section className="artist-hero" aria-labelledby="artist-title">
