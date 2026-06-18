@@ -13,8 +13,6 @@ export default function FeaturedWorkSlider({ onNavigate }) {
   }, [])
 
   const activeWork = featuredWorks[activeIndex]
-  const displayIndex = String(activeIndex + 1)
-  const total = String(featuredWorks.length)
   const activeHref = `/works/${activeWork.slug}`
 
   const followWork = (event, href) => {
@@ -52,7 +50,6 @@ export default function FeaturedWorkSlider({ onNavigate }) {
               aria-hidden={index === activeIndex ? 'false' : 'true'}
             />
           ))}
-
         </a>
 
         <div className="featured-work-footer">
@@ -64,41 +61,37 @@ export default function FeaturedWorkSlider({ onNavigate }) {
           </div>
 
           <div className="featured-work-nav">
-            <div className="featured-work-controls" aria-label={`${displayIndex} of ${total}`}>
+            <div className="featured-work-controls" aria-label="Featured work controls">
               <button
                 type="button"
                 className="featured-control-arrow"
                 onClick={showPrevious}
                 aria-label="Previous featured work"
               >
-                ◀
+                &lt;
               </button>
-              <strong>
-                <span>{displayIndex}</span>/{total}
-              </strong>
+              <div className="featured-work-numbers" aria-label="Featured work numbers">
+                {featuredWorks.map((work, index) => (
+                  <button
+                    key={work.slug}
+                    className={index === activeIndex ? 'is-active' : ''}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Show ${work.title}`}
+                    aria-current={index === activeIndex ? 'true' : undefined}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
               <button
                 type="button"
                 className="featured-control-arrow"
                 onClick={showNext}
                 aria-label="Next featured work"
               >
-                ▶
+                &gt;
               </button>
-            </div>
-
-            <div className="featured-work-numbers" aria-label="Featured work numbers">
-              {featuredWorks.map((work, index) => (
-                <button
-                  key={work.slug}
-                  className={index === activeIndex ? 'is-active' : ''}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`Show ${work.title}`}
-                  aria-current={index === activeIndex ? 'true' : undefined}
-                >
-                  {index + 1}
-                </button>
-              ))}
             </div>
           </div>
         </div>

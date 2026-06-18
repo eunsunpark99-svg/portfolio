@@ -201,8 +201,8 @@
 
 .social-link {
   display: inline-grid;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   border: 0;
   border-radius: 5px;
@@ -220,8 +220,8 @@
 }
 
 .social-link svg {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   fill: currentColor;
   stroke: none;
 }
@@ -545,7 +545,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 7px;
   min-height: 24px;
   padding: 0;
   color: #111111;
@@ -571,33 +571,17 @@
   color: #c50000;
 }
 
-.featured-work-controls strong {
-  display: inline-grid;
-  min-width: 34px;
-  height: 18px;
-  place-items: center;
-  border: 1px solid #c50000;
-  border-radius: 999px;
-  background: #fff7ed;
-  color: #c50000;
-  font-size: 0.7rem;
-  font-weight: 750;
-}
-
-.featured-work-controls strong span {
-  color: inherit;
-}
-
 .featured-control-arrow {
   color: #c50000;
   cursor: pointer;
 }
 
 .featured-work-numbers {
-  display: none;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 4px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   padding: 0;
 }
 
