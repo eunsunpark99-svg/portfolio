@@ -21,8 +21,7 @@ export const featuredWorks = [
     meta: 'Artwork documentation',
     year: '2026',
     medium: 'Photography, image archive',
-    image: 'images/gallery-feature.jpg',
-    alt: 'Blue cup and spoon artwork preview.',
+    image: `${import.meta.env.BASE_URL}images/gallery-feature.jpg`,
     description:
       'A selected image archive for introducing visual studies, still images, and project documentation.',
     details: [
