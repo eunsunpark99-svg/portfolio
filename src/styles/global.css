@@ -196,13 +196,13 @@
 .social-links {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 9px;
 }
 
 .social-link {
   display: inline-grid;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border: 0;
   border-radius: 5px;
@@ -220,22 +220,45 @@
 }
 
 .social-link svg {
-  width: 25px;
-  height: 25px;
-  fill: currentColor;
+  width: 30px;
+  height: 30px;
+  fill: none;
   stroke: none;
 }
 
+.social-icon-bg {
+  fill: currentColor;
+}
+
+.social-icon-line {
+  fill: none;
+  stroke: var(--color-surface);
+  stroke-width: 2.7;
+}
+
+.social-icon-dot,
+.social-icon-mark,
+.social-icon-text {
+  fill: var(--color-surface);
+}
+
+.social-icon-text {
+  font-family: Arial, sans-serif;
+  font-size: 7.2px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
 .social-link-instagram {
-  color: #b85f7b;
+  color: #c44c86;
 }
 
 .social-link-facebook {
-  color: #4f78b7;
+  color: #2f73d6;
 }
 
 .social-link-blog {
-  color: #46a66d;
+  color: #24c875;
 }
 
 .signup-button,

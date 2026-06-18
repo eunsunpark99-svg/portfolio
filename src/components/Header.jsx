@@ -23,35 +23,28 @@ const socialLinks = [
 const SocialIcon = ({ type }) => {
   if (type === 'instagram') {
     return (
-      <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path
-          fillRule="evenodd"
-          d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2.2 2.2v11.6h9.6V6.2H7.2Zm4.8 2.45a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7Zm0 1.9a1.45 1.45 0 1 1 0 2.9 1.45 1.45 0 0 1 0-2.9Zm3.9-2.2a1.05 1.05 0 1 0 0 2.1 1.05 1.05 0 0 0 0-2.1Z"
-          clipRule="evenodd"
-        />
+      <svg aria-hidden="true" viewBox="0 0 32 32">
+        <rect className="social-icon-bg" x="2" y="2" width="28" height="28" rx="8" />
+        <rect className="social-icon-line" x="8.2" y="8.2" width="15.6" height="15.6" rx="5.1" />
+        <circle className="social-icon-line" cx="16" cy="16" r="4.2" />
+        <circle className="social-icon-dot" cx="21.25" cy="10.75" r="1.45" />
       </svg>
     )
   }
 
   if (type === 'facebook') {
     return (
-      <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path
-          fillRule="evenodd"
-          d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm8.1 15v-5.25h1.75l.28-2.05H13.1v-1.32c0-.6.18-1 1.05-1h1.08V7.55a14.5 14.5 0 0 0-1.62-.08c-1.6 0-2.7.98-2.7 2.78v1.45H9.1v2.05h1.8V19h2.2Z"
-          clipRule="evenodd"
-        />
+      <svg aria-hidden="true" viewBox="0 0 32 32">
+        <rect className="social-icon-bg" x="2" y="2" width="28" height="28" rx="8" />
+        <path className="social-icon-mark" d="M18.55 28V17.85h3.38l.52-3.95h-3.9v-2.52c0-1.15.32-1.93 1.96-1.93h2.1V5.92a28.2 28.2 0 0 0-3.05-.16c-3.02 0-5.09 1.84-5.09 5.23v2.91h-3.42v3.95h3.42V28h4.08Z" />
       </svg>
     )
   }
 
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path
-        fillRule="evenodd"
-        d="M5 4h14a1 1 0 0 1 1 1v10.4a1 1 0 0 1-1 1h-5.8L9.3 20v-3.6H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2.2 2.2v8h4.1v1.35l1.25-1.35h5.25v-8H7.2Zm3.05 2.05h2.05c1.35 0 2.18.7 2.18 1.78 0 .56-.24 1.02-.7 1.34.62.3.96.8.96 1.5 0 1.2-.9 1.95-2.35 1.95h-2.14V8.25Zm1.5 2.35h.45c.48 0 .76-.2.76-.56s-.27-.55-.75-.55h-.46v1.11Zm0 2.98h.56c.52 0 .84-.25.84-.66 0-.42-.32-.66-.86-.66h-.54v1.32Z"
-        clipRule="evenodd"
-      />
+    <svg aria-hidden="true" viewBox="0 0 32 32">
+      <path className="social-icon-bg" d="M7.5 3.5h17A5.5 5.5 0 0 1 30 9v11.2a5.5 5.5 0 0 1-5.5 5.5h-5.8L16 30l-2.7-4.3H7.5A5.5 5.5 0 0 1 2 20.2V9a5.5 5.5 0 0 1 5.5-5.5Z" />
+      <text className="social-icon-text" x="16" y="18.2" textAnchor="middle">blog</text>
     </svg>
   )
 }
