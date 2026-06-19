@@ -17,16 +17,44 @@ const supportedRoutes = new Set([
   '/search',
 ])
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+const stripBasePath = (path) => {
+  if (!basePath || basePath === '/') {
+    return path
+  }
+
+  if (path === basePath) {
+    return '/'
+  }
+
+  return path.startsWith(`${basePath}/`) ? path.slice(basePath.length) : path
+}
+
+const addBasePath = (path) => {
+  if (!basePath || basePath === '/') {
+    return path
+  }
+
+  const [pathname, query = ''] = path.split('?')
+  const normalizedPath = pathname === '/' ? '' : pathname
+  const normalizedQuery = query ? `?${query}` : ''
+
+  return `${basePath}${normalizedPath}${normalizedQuery}` || '/'
+}
+
 const parseRoute = () => {
   if (typeof window === 'undefined') {
     return '/'
   }
 
-  if (window.location.pathname.startsWith('/works/')) {
-    return window.location.pathname
+  const pathname = stripBasePath(window.location.pathname)
+
+  if (pathname.startsWith('/works/')) {
+    return pathname
   }
 
-  return supportedRoutes.has(window.location.pathname) ? window.location.pathname : '/'
+  return supportedRoutes.has(pathname) ? pathname : '/'
 }
 
 export default function App() {
@@ -73,7 +101,7 @@ export default function App() {
     if (path === route) {
       return
     }
-    window.history.pushState({}, '', path)
+    window.history.pushState({}, '', addBasePath(path))
     setRoute(parseRoute())
   }
 
