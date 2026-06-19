@@ -24,7 +24,15 @@ const SocialIcon = ({ type }) => {
   if (type === 'instagram') {
     return (
       <svg aria-hidden="true" viewBox="0 0 32 32">
-        <rect className="social-icon-bg" x="2" y="2" width="28" height="28" rx="8" />
+        <defs>
+          <linearGradient id="instagram-muted-gradient" x1="5" y1="29" x2="27" y2="3" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#e0a93f" />
+            <stop offset="0.36" stopColor="#d76062" />
+            <stop offset="0.68" stopColor="#c04f9d" />
+            <stop offset="1" stopColor="#755bd7" />
+          </linearGradient>
+        </defs>
+        <rect className="social-icon-bg" x="2" y="2" width="28" height="28" rx="8" fill="url(#instagram-muted-gradient)" />
         <rect className="social-icon-line" x="8.2" y="8.2" width="15.6" height="15.6" rx="5.1" />
         <circle className="social-icon-line" cx="16" cy="16" r="4.2" />
         <circle className="social-icon-dot" cx="21.25" cy="10.75" r="1.45" />

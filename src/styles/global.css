@@ -230,6 +230,10 @@
   fill: currentColor;
 }
 
+.social-link-instagram .social-icon-bg {
+  fill: url("#instagram-muted-gradient");
+}
+
 .social-icon-line {
   fill: none;
   stroke: var(--color-surface);
@@ -250,7 +254,12 @@
 }
 
 .social-link-instagram {
-  color: #c44c86;
+  color: #b86a92;
+  filter: saturate(0.82) contrast(0.98);
+}
+
+.social-link-instagram:hover {
+  filter: saturate(0.95) contrast(1.02);
 }
 
 .social-link-facebook {
